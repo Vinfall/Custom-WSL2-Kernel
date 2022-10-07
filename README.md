@@ -1,6 +1,14 @@
 # Custom-WSL2-Kernel
 Patch to build my own custom [WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel).
 
+## Benefits
+
+- Native-CPU Optimized (via make flag `CFLAGS='-march=native -O2 -pipe'`)
+- [USB Support](https://dowww.spencerwoo.com/4-advanced/4-4-usb.html)
+- [Enable extra cryptos for DM-Crypt](https://gist.github.com/d4v3y0rk/e19d346ec9836b4811d4fecc1e1d5d64?permalink_comment_id=4314492#gistcomment-4314492), which makes mounting [VeraCrypt](https://veracrypt.fr/en/Home.html) volumes inside WSL possible
+- Make sure the source code released by Microsoft is really functional
+- Add whatever you like in the kernel name, which would later be reflected in [Neofetch](https://github.com/dylanaraps/neofetch)
+
 ## Usage
 
 1. Backup config and generate patch that will be used later:
@@ -42,6 +50,13 @@ diff config .config
 
 ```sh
 patch -R .config < ~/dm-crypt-plus-usb.patch
+```
+
+6. Create `.wslconfig` in `%USERPROFILE%` to replace the WSL kernel without replacing `C: \Windows\System32\lxss\tools\kernel`.
+
+```ini
+[wsl2]
+kernel=C:\\WSL\\bzImage
 ```
 
 You may check out my blog 
