@@ -60,5 +60,5 @@ kernel=C:\\WSL\\bzImage
 ```
 
 You may check out my blog 
-[Linux From Scratch (LFS) 编译记录](https://blog.vinfall.com/posts/2022/lfs)
+[Linux From Scratch (LFS) 编译记录](https://blog.vinfall.com/posts/2022/09/lfs/)
 (written in Chinese, but most comments are in English) on this for details.
