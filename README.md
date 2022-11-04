@@ -11,6 +11,8 @@ Patch to build my own custom [WSL2-Linux-Kernel](https://github.com/microsoft/WS
 
 ## Usage
 
+0. Remember to **replace the version number** with the latest!
+
 1. Backup config and generate patch that will be used later:
 
 ```sh
@@ -37,7 +39,7 @@ gunzip config.gz
 diff config .config
 ```
 
-4. The output should be like:
+4. The output should be something like:
 
 ```sh
 3c3
