@@ -11,6 +11,12 @@ Patch to build my own custom [WSL2-Linux-Kernel](https://github.com/microsoft/WS
 
 ## Usage
 
+### Customization
+
+Check [latest releases](https://github.com/Vinfall/Custom-WSL2-Kernel/releases/latest) for patched make config to customize it yourself.
+
+### Kernel
+
 0. Remember to **replace the version number** with the latest!
 
 1. Backup config and generate patch that will be used later:
@@ -61,6 +67,23 @@ patch -R .config < ~/dm-crypt-plus-usb.patch
 kernel=C:\\WSL\\bzImage
 ```
 
+### USBIP
+
+Only do this after you have compiled the kernel,
+and make sure you are inside the kernel root folder.
+This will compile and copy the necessary library to the system,
+you may want to backup `libusbip.so.0` to reuse it on other distros.
+
+```sh
+# Compile USBIP
+cd tools/usb/usbip
+bash ./autogen.sh
+bash ./configure
+make install
+# Make USBIP toolchain accessible by USBIP
+cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
+```
+
 You may check out my blog 
 [Linux From Scratch (LFS) 编译记录](https://blog.vinfall.com/posts/2022/09/lfs/)
-(written in Chinese, but most comments are in English) on this for details.
+(written in Chinese, but most comments in code blocks are in English) on this for details.
