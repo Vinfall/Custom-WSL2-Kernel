@@ -24,7 +24,7 @@ Check [latest releases](https://github.com/Vinfall/Custom-WSL2-Kernel/releases/l
 ```sh
 cp Microsoft/config-wsl ~/ms-config-wsl-5.15.62.1.config
 cp .config ~/dm-crypt-plus-usb-kernel.config
-diff -u ms-config-wsl-5.15.62.1.config dm-crypt-plus-usb-kernel.config > ~/dm-crypt-plus-usb.patch
+TZ=UTC diff -u ms-config-wsl-5.15.62.1.config dm-crypt-plus-usb-kernel.config > ~/dm-crypt-plus-usb.patch
 ```
 
 2. How to use patch:
@@ -60,7 +60,7 @@ diff config .config
 patch -R .config < ~/dm-crypt-plus-usb.patch
 ```
 
-6. Create `.wslconfig` in `%USERPROFILE%` to replace the WSL kernel without replacing `C: \Windows\System32\lxss\tools\kernel`.
+6. Create `.wslconfig` in `%USERPROFILE%` to replace the WSL kernel without replacing `$Env:SystemRoot\System32\lxss\tools\kernel`.
 
 ```ini
 [wsl2]
