@@ -1,10 +1,10 @@
---- /root/ms-config-wsl-5.15.83.1.config	2023-01-12 04:01:12.798993989 +0000
-+++ /root/dm-crypt-plus-usb-kernel.config	2023-01-12 04:01:16.618993530 +0000
+--- Microsoft/config-wsl	2023-02-04 00:44:10.000000000 +0000
++++ .config	2023-02-04 02:44:16.711713469 +0000
 @@ -1,17 +1,21 @@
  #
  # Automatically generated file; DO NOT EDIT.
--# Linux/x86 5.15.83.1 Kernel Configuration
-+# Linux/x86 5.15.83.114514 Kernel Configuration
+-# Linux/x86 5.15.90.1 Kernel Configuration
++# Linux/x86 5.15.90.271828 Kernel Configuration
  #
 -CONFIG_CC_VERSION_TEXT="x86_64-msft-linux-gcc (GCC) 9.3.0"
 +CONFIG_CC_VERSION_TEXT="gcc (GCC) 12.2.0"
@@ -255,7 +255,7 @@
  
  #
  # Compression
-@@ -3915,9 +3956,8 @@
+@@ -3915,9 +3956,10 @@
  # CONFIG_DEBUG_INFO_SPLIT is not set
  CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
  # CONFIG_DEBUG_INFO_DWARF4 is not set
@@ -264,10 +264,12 @@
 -CONFIG_DEBUG_INFO_BTF_MODULES=y
 +# CONFIG_DEBUG_INFO_DWARF5 is not set
 +# CONFIG_DEBUG_INFO_BTF is not set
++# CONFIG_PAHOLE_HAS_SPLIT_BTF is not set
++# CONFIG_DEBUG_INFO_BTF_MODULES is not set
  # CONFIG_GDB_SCRIPTS is not set
  CONFIG_FRAME_WARN=1024
  # CONFIG_STRIP_ASM_SYMS is not set
-@@ -3944,6 +3984,8 @@
+@@ -3944,6 +3986,8 @@
  CONFIG_ARCH_HAS_UBSAN_SANITIZE_ALL=y
  # CONFIG_UBSAN is not set
  CONFIG_HAVE_ARCH_KCSAN=y
@@ -276,7 +278,7 @@
  # end of Generic Kernel Debugging Instruments
  
  CONFIG_DEBUG_KERNEL=y
-@@ -4113,6 +4155,7 @@
+@@ -4113,6 +4157,7 @@
  CONFIG_BPF_EVENTS=y
  CONFIG_DYNAMIC_EVENTS=y
  CONFIG_PROBE_EVENTS=y
@@ -284,7 +286,7 @@
  CONFIG_FTRACE_MCOUNT_RECORD=y
  CONFIG_FTRACE_MCOUNT_USE_CC=y
  # CONFIG_SYNTH_EVENTS is not set
-@@ -4163,7 +4206,7 @@
+@@ -4163,7 +4208,7 @@
  #
  # CONFIG_KUNIT is not set
  # CONFIG_NOTIFIER_ERROR_INJECTION is not set
