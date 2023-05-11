@@ -1,27 +1,27 @@
---- linux-msft-wsl-6.1.21.1.config	2023-04-03 03:23:09.123666832 +0000
-+++ dm-crypt-plus-usb-kernel.config	2023-04-03 03:22:39.483668544 +0000
-@@ -1,22 +1,23 @@
+--- linux-msft-wsl-6.1.21.2.config	2023-05-11 03:41:24.295089310 +0000
++++ dm-crypt-plus-usb-kernel.config	2023-05-11 03:41:28.135088653 +0000
+@@ -1,15 +1,15 @@
  #
  # Automatically generated file; DO NOT EDIT.
--# Linux/x86 6.1.21.1 Kernel Configuration
-+# Linux/x86 6.1.21.114514 Kernel Configuration
+-# Linux/x86 6.1.21.21 Kernel Configuration
++# Linux/x86 6.1.21.25252 Kernel Configuration
  #
--CONFIG_CC_VERSION_TEXT="gcc (GCC) 11.2.0"
+-CONFIG_CC_VERSION_TEXT="gcc (Ubuntu 11.1.0-1ubuntu1~20.04) 11.1.0"
 +CONFIG_CC_VERSION_TEXT="gcc (GCC) 12.2.0"
  CONFIG_CC_IS_GCC=y
--CONFIG_GCC_VERSION=110200
+-CONFIG_GCC_VERSION=110100
 +CONFIG_GCC_VERSION=120200
  CONFIG_CLANG_VERSION=0
  CONFIG_AS_IS_GNU=y
--CONFIG_AS_VERSION=23700
+-CONFIG_AS_VERSION=23400
 +CONFIG_AS_VERSION=24000
  CONFIG_LD_IS_BFD=y
--CONFIG_LD_VERSION=23700
+-CONFIG_LD_VERSION=23400
 +CONFIG_LD_VERSION=24000
  CONFIG_LLD_VERSION=0
  CONFIG_CC_CAN_LINK=y
-+CONFIG_CC_CAN_LINK_STATIC=y
- CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y
+ CONFIG_CC_CAN_LINK_STATIC=y
+@@ -17,7 +17,7 @@
  CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT=y
  CONFIG_CC_HAS_ASM_INLINE=y
  CONFIG_CC_HAS_NO_PROFILE_FN_ATTR=y
@@ -30,7 +30,7 @@
  CONFIG_IRQ_WORK=y
  CONFIG_BUILDTIME_TABLE_SORT=y
  CONFIG_THREAD_INFO_IN_TASK=y
-@@ -27,7 +28,7 @@
+@@ -28,7 +28,7 @@
  CONFIG_INIT_ENV_ARG_LIMIT=32
  # CONFIG_COMPILE_TEST is not set
  # CONFIG_WERROR is not set
@@ -39,7 +39,7 @@
  # CONFIG_LOCALVERSION_AUTO is not set
  CONFIG_BUILD_SALT=""
  CONFIG_HAVE_KERNEL_GZIP=y
-@@ -462,6 +463,7 @@
+@@ -464,6 +464,7 @@
  CONFIG_HAVE_LIVEPATCH=y
  # end of Processor type and features
  
@@ -47,7 +47,7 @@
  CONFIG_CC_HAS_RETURN_THUNK=y
  CONFIG_SPECULATION_MITIGATIONS=y
  CONFIG_PAGE_TABLE_ISOLATION=y
-@@ -470,6 +472,7 @@
+@@ -472,6 +473,7 @@
  CONFIG_CPU_UNRET_ENTRY=y
  CONFIG_CPU_IBPB_ENTRY=y
  CONFIG_CPU_IBRS_ENTRY=y
@@ -55,7 +55,16 @@
  CONFIG_ARCH_HAS_ADD_PAGES=y
  CONFIG_ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE=y
  
-@@ -2417,6 +2420,7 @@
+@@ -774,6 +776,8 @@
+ # end of GCOV-based kernel profiling
+ 
+ CONFIG_HAVE_GCC_PLUGINS=y
++CONFIG_GCC_PLUGINS=y
++# CONFIG_GCC_PLUGIN_LATENT_ENTROPY is not set
+ # end of General architecture-dependent options
+ 
+ CONFIG_RT_MUTEXES=y
+@@ -2419,6 +2423,7 @@
  # CONFIG_BATTERY_BQ27XXX is not set
  # CONFIG_BATTERY_MAX17040 is not set
  # CONFIG_BATTERY_MAX17042 is not set
@@ -63,7 +72,7 @@
  # CONFIG_CHARGER_MAX8903 is not set
  # CONFIG_CHARGER_LP8727 is not set
  # CONFIG_CHARGER_LTC4162L is not set
-@@ -2818,7 +2822,22 @@
+@@ -2820,7 +2825,22 @@
  #
  # also be needed; see USB_STORAGE Help for more info
  #
@@ -87,7 +96,7 @@
  
  #
  # USB Imaging devices
-@@ -2926,7 +2945,8 @@
+@@ -2928,7 +2948,8 @@
  #
  # USB Physical Layer drivers
  #
@@ -97,7 +106,7 @@
  # CONFIG_USB_ISP1301 is not set
  # end of USB Physical Layer drivers
  
-@@ -3230,7 +3250,14 @@
+@@ -3232,7 +3253,14 @@
  # end of SOC (System On Chip) specific Drivers
  
  # CONFIG_PM_DEVFREQ is not set
@@ -113,7 +122,7 @@
  # CONFIG_MEMORY is not set
  # CONFIG_IIO is not set
  # CONFIG_NTB is not set
-@@ -3641,10 +3668,12 @@
+@@ -3643,7 +3671,13 @@
  #
  # Memory initialization
  #
@@ -121,15 +130,22 @@
 +CONFIG_CC_HAS_AUTO_VAR_INIT_ZERO_BARE=y
 +CONFIG_CC_HAS_AUTO_VAR_INIT_ZERO=y
  CONFIG_INIT_STACK_NONE=y
--# CONFIG_GCC_PLUGIN_STRUCTLEAK_USER is not set
--# CONFIG_GCC_PLUGIN_STRUCTLEAK_BYREF is not set
--# CONFIG_GCC_PLUGIN_STRUCTLEAK_BYREF_ALL is not set
 +# CONFIG_INIT_STACK_ALL_PATTERN is not set
 +# CONFIG_INIT_STACK_ALL_ZERO is not set
- # CONFIG_GCC_PLUGIN_STACKLEAK is not set
++# CONFIG_GCC_PLUGIN_STACKLEAK is not set
  # CONFIG_INIT_ON_ALLOC_DEFAULT_ON is not set
  # CONFIG_INIT_ON_FREE_DEFAULT_ON is not set
-@@ -3683,6 +3712,7 @@
+ CONFIG_CC_HAS_ZERO_CALL_USED_REGS=y
+@@ -3651,6 +3685,8 @@
+ # end of Memory initialization
+ 
+ CONFIG_RANDSTRUCT_NONE=y
++# CONFIG_RANDSTRUCT_FULL is not set
++# CONFIG_RANDSTRUCT_PERFORMANCE is not set
+ # end of Kernel hardening options
+ # end of Security options
+ 
+@@ -3679,6 +3715,7 @@
  CONFIG_CRYPTO_AKCIPHER2=y
  CONFIG_CRYPTO_AKCIPHER=y
  CONFIG_CRYPTO_KPP2=y
@@ -137,7 +153,7 @@
  CONFIG_CRYPTO_ACOMP2=y
  CONFIG_CRYPTO_MANAGER=y
  CONFIG_CRYPTO_MANAGER2=y
-@@ -3692,9 +3722,10 @@
+@@ -3688,9 +3725,10 @@
  CONFIG_CRYPTO_NULL=y
  CONFIG_CRYPTO_NULL2=y
  # CONFIG_CRYPTO_PCRYPT is not set
@@ -149,7 +165,7 @@
  # end of Crypto core or helper
  
  #
-@@ -3706,7 +3737,7 @@
+@@ -3702,7 +3740,7 @@
  # CONFIG_CRYPTO_ECDSA is not set
  # CONFIG_CRYPTO_ECRDSA is not set
  # CONFIG_CRYPTO_SM2 is not set
@@ -158,7 +174,7 @@
  # end of Public-key cryptography
  
  #
-@@ -3717,17 +3748,18 @@
+@@ -3713,17 +3751,18 @@
  # CONFIG_CRYPTO_ANUBIS is not set
  # CONFIG_CRYPTO_ARIA is not set
  # CONFIG_CRYPTO_BLOWFISH is not set
@@ -180,7 +196,7 @@
  # end of Block ciphers
  
  #
-@@ -3735,7 +3767,7 @@
+@@ -3731,7 +3770,7 @@
  #
  # CONFIG_CRYPTO_ADIANTUM is not set
  CONFIG_CRYPTO_ARC4=y
@@ -189,7 +205,7 @@
  CONFIG_CRYPTO_CBC=y
  # CONFIG_CRYPTO_CFB is not set
  CONFIG_CRYPTO_CTR=y
-@@ -3753,7 +3785,7 @@
+@@ -3749,7 +3788,7 @@
  # AEAD (authenticated encryption with associated data) ciphers
  #
  # CONFIG_CRYPTO_AEGIS128 is not set
@@ -198,7 +214,7 @@
  CONFIG_CRYPTO_CCM=y
  CONFIG_CRYPTO_GCM=y
  CONFIG_CRYPTO_SEQIV=y
-@@ -3771,12 +3803,12 @@
+@@ -3767,12 +3806,12 @@
  CONFIG_CRYPTO_MD4=y
  CONFIG_CRYPTO_MD5=y
  # CONFIG_CRYPTO_MICHAEL_MIC is not set
@@ -213,7 +229,7 @@
  # CONFIG_CRYPTO_SM3_GENERIC is not set
  # CONFIG_CRYPTO_STREEBOG is not set
  # CONFIG_CRYPTO_VMAC is not set
-@@ -3833,22 +3865,22 @@
+@@ -3829,22 +3868,22 @@
  # Accelerated Cryptographic Algorithms for CPU (x86)
  #
  CONFIG_CRYPTO_CURVE25519_X86=y
@@ -246,7 +262,7 @@
  # CONFIG_CRYPTO_ARIA_AESNI_AVX_X86_64 is not set
  CONFIG_CRYPTO_CHACHA20_X86_64=y
  # CONFIG_CRYPTO_AEGIS128_AESNI_SSE2 is not set
-@@ -3862,7 +3894,7 @@
+@@ -3858,7 +3897,7 @@
  # CONFIG_CRYPTO_SHA512_SSSE3 is not set
  # CONFIG_CRYPTO_SM3_AVX_X86_64 is not set
  # CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL is not set
@@ -255,7 +271,7 @@
  # CONFIG_CRYPTO_CRC32_PCLMUL is not set
  # end of Accelerated Cryptographic Algorithms for CPU (x86)
  
-@@ -4062,10 +4094,7 @@
+@@ -4058,10 +4097,7 @@
  # CONFIG_DEBUG_INFO_REDUCED is not set
  # CONFIG_DEBUG_INFO_COMPRESSED is not set
  # CONFIG_DEBUG_INFO_SPLIT is not set
