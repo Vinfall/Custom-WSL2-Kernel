@@ -1,0 +1,40 @@
+name: "Kernel-Build"
+
+on:
+  push:
+    branches: [ main ]
+    # Trigger only when Makefile is changed
+    paths: ['make.sh', '*.patch']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: 'main'
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      - name: install dependencies
+        run: sudo apt install -y wget tar build-essential flex bison dwarves libssl-dev libelf-dev
+      - name: build
+        run: bash make.sh
+      - name: save release as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          retention-days: 60
+          name: Custom-WSL2-Kernel
+          path: output
+      - name: upload artifact to release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: True
+          prerelease: True
+          tag: "action-build"
+          omitBody: True
+          omitBodyDuringUpdate: True
+          omitNameDuringUpdate: True
+          artifacts: "output/*"
+          token: ${{ secrets.GITHUB_TOKEN }}
