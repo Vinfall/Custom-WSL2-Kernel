@@ -1,10 +1,10 @@
 name: "Kernel-Build"
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
     # Trigger only when Makefile is changed
-    paths: ['make.sh', '*.patch']
+    #paths: ['make.sh', '*.patch']
   workflow_dispatch:
 
 jobs:
