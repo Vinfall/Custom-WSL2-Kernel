@@ -1,13 +1,14 @@
 # Custom-WSL2-Kernel
+
 Patch to build my own custom [WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel).
 
 ## Benefits
 
 - Native-CPU Optimized (via make flag `CFLAGS='-march=native -O2 -pipe'`)
-- [USB Support](https://dowww.spencerwoo.com/4-advanced/4-4-usb.html)
+- [USB Support](https://dowww.spencerwoo.com/4-advanced/4-4-usb.html) (WSL has partial native support now)
 - [Enable extra cryptos for DM-Crypt](https://gist.github.com/d4v3y0rk/e19d346ec9836b4811d4fecc1e1d5d64?permalink_comment_id=4314492#gistcomment-4314492), which makes mounting [VeraCrypt](https://veracrypt.fr/en/Home.html) volumes inside WSL possible
 - Make sure the source code released by Microsoft is really functional
-- Add whatever you like in the kernel name, which would later be reflected in [Neofetch](https://github.com/dylanaraps/neofetch)
+- Add whatever you like in the kernel name, which would later be reflected in [Neofetch](https://github.com/dylanaraps/neofetch) or [screenFetch](https://github.com/KittyKatt/screenFetch)
 
 ## Usage
 
@@ -17,27 +18,30 @@ Check [latest releases](https://github.com/Vinfall/Custom-WSL2-Kernel/releases/l
 
 ### Kernel
 
-0. Remember to **replace the version number** with the latest!
+> [!TIP]
+> Remember to **replace the version number** with the latest!
 
-1. Backup config and generate patch that will be used later:
+1. Backup config and generate patch that will be used later, run in unpacked WSL kernel directory:
 
 ```sh
-cp Microsoft/config-wsl ~/ms-config-wsl-5.15.62.1.config
-cp .config ~/dm-crypt-plus-usb-kernel.config
-TZ=UTC diff -u ms-config-wsl-5.15.62.1.config dm-crypt-plus-usb-kernel.config > ~/dm-crypt-plus-usb.patch
+# Change version
+KERNEL_VER="5.15.150.1"
+# Backup config
+cp Microsoft/config-wsl $HOME/linux-msft-wsl-${KERNEL_VER}.config
+cp .config $HOME/dm-crypt-plus-usb-kernel.config
+# Geterante patch
+TZ=UTC diff -u Microsoft/config-wsl .config > $HOME/dm-crypt-plus-usb.patch
+unset KERNEL_VER
 ```
 
 2. How to use patch:
 
 ```sh
-cp Microsoft/config-wsl ~/ms-config-wsl-5.15.68.1.config
-# Change file name in line 1 (and optionally, timestamp)
-vim ~/dm-crypt-plus-usb.patch
-patch ~/ms-config-wsl-5.15.68.1.config < ~/dm-crypt-plus-usb.patch
-cp ~/ms-config-wsl-5.15.68.1.config .config
+cp Microsoft/config-wsl .config
+patch .config < dm-crypt-plus-usb.patch
 ```
 
-3. Make sure we are safe by comparing with current custom kernel config:
+3. Make sure we are safe by comparing with current custom kernel config (if you use my config previously):
 
 ```sh
 cp /proc/config.gz config.gz
@@ -57,7 +61,7 @@ diff config .config
 5. (Optional) If anything goes wrong, just revert the patch:
 
 ```sh
-patch -R .config < ~/dm-crypt-plus-usb.patch
+patch -R .config < dm-crypt-plus-usb.patch
 ```
 
 6. Create `.wslconfig` in `%USERPROFILE%` to replace the WSL kernel without replacing `$Env:SystemRoot\System32\lxss\tools\kernel`.
@@ -82,6 +86,11 @@ bash ./configure
 make install
 # Make USBIP toolchain accessible by USBIP
 cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
+# Backup USBIP & config
+cp libsrc/.libs/libusbip.so.0 /mnt/c/WSL/libusbip.so.0
+cd ../../../
+cp .config /mnt/c/WSL/dm-crypt-plus-usb-kernel.config
+cp dm-crypt-plus-usb.patch /mnt/c/WSL/dm-crypt-plus-usb.patch
 ```
 
 You may check out my blog 
