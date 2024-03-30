@@ -4,8 +4,8 @@ KERNEL_VER="5.15.150.1"
 
 # Get latest tarball
 wget "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${KERNEL_VER}.tar.gz"
-tar xf linux-msft-wsl-${KERNEL_VER}.tar.gz --directory=linux-msft-wsl-${KERNEL_VER}
-cd linux-msft-wsl-${KERNEL_VER} || exit
+tar xf linux-msft-wsl-${KERNEL_VER}.tar.gz
+cd WSL2-Linux-Kernel-linux-msft-wsl-${KERNEL_VER} || exit
 unset KERNEL_VER
 
 # Patch
