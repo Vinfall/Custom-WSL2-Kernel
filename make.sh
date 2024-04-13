@@ -3,6 +3,13 @@
 KERNEL_VER="5.15.150.1"
 OUTPUT_DIR="output"
 
+# Enable optimizations for current CPU, you should disable this
+export COMMON_FLAGS="-march=native -O2 -pipe"
+export CFLAGS="${COMMON_FLAGS}"
+export CXXFLAGS="${COMMON_FLAGS}"
+# Change to your preference
+export MAKEFLAGS=-j5
+
 # Get latest tarball
 wget "https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-${KERNEL_VER}.tar.gz"
 tar xf linux-msft-wsl-${KERNEL_VER}.tar.gz
