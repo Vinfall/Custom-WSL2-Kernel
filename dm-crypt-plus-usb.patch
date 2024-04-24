@@ -1,10 +1,10 @@
---- Microsoft/config-wsl	2024-03-13 23:31:19.000000000 +0000
-+++ .config	2024-03-30 05:16:32.000000000 +0000
+--- Microsoft/config-wsl	2024-04-23 17:27:59.000000000 +0000
++++ .config	2024-04-24 06:00:16.000000000 +0000
 @@ -1,15 +1,15 @@
  #
  # Automatically generated file; DO NOT EDIT.
 -# Linux/x86 5.15.146.1 Kernel Configuration
-+# Linux/x86 5.15.150.114514 Kernel Configuration
++# Linux/x86 5.15.153.114514 Kernel Configuration
  #
 -CONFIG_CC_VERSION_TEXT="gcc (Ubuntu 11.4.0-2ubuntu1~20.04) 11.4.0"
 +CONFIG_CC_VERSION_TEXT="gcc (GCC) 13.2.0"
@@ -114,7 +114,15 @@
  # CONFIG_NET_SCH_HTB is not set
  # CONFIG_NET_SCH_HFSC is not set
  # CONFIG_NET_SCH_PRIO is not set
-@@ -2346,6 +2359,7 @@
+@@ -1377,7 +1390,6 @@
+ # CONFIG_NET_SCH_ETF is not set
+ # CONFIG_NET_SCH_TAPRIO is not set
+ # CONFIG_NET_SCH_GRED is not set
+-# CONFIG_NET_SCH_DSMARK is not set
+ # CONFIG_NET_SCH_NETEM is not set
+ # CONFIG_NET_SCH_DRR is not set
+ # CONFIG_NET_SCH_MQPRIO is not set
+@@ -2346,6 +2358,7 @@
  # CONFIG_BATTERY_BQ27XXX is not set
  # CONFIG_BATTERY_MAX17040 is not set
  # CONFIG_BATTERY_MAX17042 is not set
@@ -122,7 +130,7 @@
  # CONFIG_CHARGER_MAX8903 is not set
  # CONFIG_CHARGER_LP8727 is not set
  # CONFIG_CHARGER_LTC4162L is not set
-@@ -2445,7 +2459,6 @@
+@@ -2445,7 +2458,6 @@
  # CONFIG_MFD_SM501 is not set
  # CONFIG_MFD_SKY81452 is not set
  # CONFIG_MFD_SYSCON is not set
@@ -130,7 +138,7 @@
  # CONFIG_MFD_LP3943 is not set
  # CONFIG_MFD_LP8788 is not set
  # CONFIG_MFD_TI_LMU is not set
-@@ -2732,7 +2745,22 @@
+@@ -2732,7 +2744,22 @@
  #
  # also be needed; see USB_STORAGE Help for more info
  #
@@ -154,7 +162,7 @@
  
  #
  # USB Imaging devices
-@@ -2839,7 +2867,8 @@
+@@ -2839,7 +2866,8 @@
  #
  # USB Physical Layer drivers
  #
@@ -164,26 +172,7 @@
  # CONFIG_USB_ISP1301 is not set
  # end of USB Physical Layer drivers
  
-@@ -3055,7 +3084,9 @@
- CONFIG_CLKBLD_I8253=y
- # end of Clock Source drivers
- 
--# CONFIG_MAILBOX is not set
-+CONFIG_MAILBOX=y
-+CONFIG_PCC=y
-+# CONFIG_ALTERA_MBOX is not set
- CONFIG_IOMMU_IOVA=y
- CONFIG_IOASID=y
- CONFIG_IOMMU_API=y
-@@ -3093,6 +3124,7 @@
- #
- # Rpmsg drivers
- #
-+# CONFIG_RPMSG_QCOM_GLINK_RPM is not set
- # CONFIG_RPMSG_VIRTIO is not set
- # end of Rpmsg drivers
- 
-@@ -3141,7 +3173,14 @@
+@@ -3141,7 +3169,14 @@
  # end of SOC (System On Chip) specific Drivers
  
  # CONFIG_PM_DEVFREQ is not set
@@ -199,7 +188,7 @@
  # CONFIG_MEMORY is not set
  # CONFIG_IIO is not set
  # CONFIG_NTB is not set
-@@ -3524,7 +3563,7 @@
+@@ -3524,7 +3559,7 @@
  # CONFIG_INTEL_TXT is not set
  CONFIG_HAVE_HARDENED_USERCOPY_ALLOCATOR=y
  CONFIG_HARDENED_USERCOPY=y
@@ -208,7 +197,7 @@
  # CONFIG_HARDENED_USERCOPY_PAGESPAN is not set
  CONFIG_FORTIFY_SOURCE=y
  # CONFIG_STATIC_USERMODEHELPER is not set
-@@ -3548,11 +3587,20 @@
+@@ -3548,11 +3583,20 @@
  #
  # Memory initialization
  #
@@ -230,7 +219,7 @@
  # end of Memory initialization
  # end of Kernel hardening options
  # end of Security options
-@@ -3582,6 +3630,7 @@
+@@ -3582,6 +3626,7 @@
  CONFIG_CRYPTO_AKCIPHER2=y
  CONFIG_CRYPTO_AKCIPHER=y
  CONFIG_CRYPTO_KPP2=y
@@ -238,7 +227,7 @@
  CONFIG_CRYPTO_ACOMP2=y
  CONFIG_CRYPTO_MANAGER=y
  CONFIG_CRYPTO_MANAGER2=y
-@@ -3591,9 +3640,10 @@
+@@ -3591,20 +3636,22 @@
  CONFIG_CRYPTO_NULL=y
  CONFIG_CRYPTO_NULL2=y
  # CONFIG_CRYPTO_PCRYPT is not set
@@ -250,16 +239,22 @@
  
  #
  # Public-key cryptography
-@@ -3604,7 +3654,7 @@
- # CONFIG_CRYPTO_ECDSA is not set
- # CONFIG_CRYPTO_ECRDSA is not set
+ #
+ CONFIG_CRYPTO_RSA=y
+ # CONFIG_CRYPTO_DH is not set
++CONFIG_CRYPTO_ECC=y
+ # CONFIG_CRYPTO_ECDH is not set
+-# CONFIG_CRYPTO_ECDSA is not set
+-# CONFIG_CRYPTO_ECRDSA is not set
++CONFIG_CRYPTO_ECDSA=y
++CONFIG_CRYPTO_ECRDSA=y
  # CONFIG_CRYPTO_SM2 is not set
 -# CONFIG_CRYPTO_CURVE25519 is not set
 +CONFIG_CRYPTO_CURVE25519=y
  CONFIG_CRYPTO_CURVE25519_X86=y
  
  #
-@@ -3612,7 +3662,7 @@
+@@ -3612,7 +3659,7 @@
  #
  CONFIG_CRYPTO_CCM=y
  CONFIG_CRYPTO_GCM=y
@@ -268,7 +263,7 @@
  # CONFIG_CRYPTO_AEGIS128 is not set
  # CONFIG_CRYPTO_AEGIS128_AESNI_SSE2 is not set
  CONFIG_CRYPTO_SEQIV=y
-@@ -3648,7 +3698,7 @@
+@@ -3648,7 +3695,7 @@
  # Digest
  #
  CONFIG_CRYPTO_CRC32C=y
@@ -277,7 +272,7 @@
  # CONFIG_CRYPTO_CRC32 is not set
  # CONFIG_CRYPTO_CRC32_PCLMUL is not set
  CONFIG_CRYPTO_XXHASH=y
-@@ -3656,7 +3706,7 @@
+@@ -3656,7 +3703,7 @@
  CONFIG_CRYPTO_BLAKE2S_X86=y
  # CONFIG_CRYPTO_CRCT10DIF is not set
  CONFIG_CRYPTO_GHASH=y
@@ -286,16 +281,19 @@
  CONFIG_CRYPTO_POLY1305_X86_64=y
  CONFIG_CRYPTO_MD4=y
  CONFIG_CRYPTO_MD5=y
-@@ -3668,7 +3718,7 @@
+@@ -3668,9 +3715,9 @@
  # CONFIG_CRYPTO_SHA512_SSSE3 is not set
  CONFIG_CRYPTO_SHA256=y
  CONFIG_CRYPTO_SHA512=y
 -# CONFIG_CRYPTO_SHA3 is not set
 +CONFIG_CRYPTO_SHA3=y
  # CONFIG_CRYPTO_SM3 is not set
- # CONFIG_CRYPTO_STREEBOG is not set
+-# CONFIG_CRYPTO_STREEBOG is not set
++CONFIG_CRYPTO_STREEBOG=y
  # CONFIG_CRYPTO_WP512 is not set
-@@ -3679,15 +3729,15 @@
+ # CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL is not set
+ 
+@@ -3679,15 +3726,15 @@
  #
  CONFIG_CRYPTO_AES=y
  # CONFIG_CRYPTO_AES_TI is not set
@@ -316,7 +314,7 @@
  # CONFIG_CRYPTO_CAST5 is not set
  # CONFIG_CRYPTO_CAST5_AVX_X86_64 is not set
  # CONFIG_CRYPTO_CAST6 is not set
-@@ -3696,21 +3746,22 @@
+@@ -3696,21 +3743,22 @@
  # CONFIG_CRYPTO_DES3_EDE_X86_64 is not set
  # CONFIG_CRYPTO_FCRYPT is not set
  # CONFIG_CRYPTO_KHAZAD is not set
@@ -348,7 +346,7 @@
  
  #
  # Compression
-@@ -3926,9 +3977,7 @@
+@@ -3926,9 +3974,7 @@
  CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
  # CONFIG_DEBUG_INFO_DWARF4 is not set
  # CONFIG_DEBUG_INFO_DWARF5 is not set
