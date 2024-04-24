@@ -25,7 +25,7 @@ Check [latest releases](https://github.com/Vinfall/Custom-WSL2-Kernel/releases/l
 
 ```sh
 # Change version
-KERNEL_VER="5.15.150.1"
+KERNEL_VER="5.15.153.1"
 # Backup config
 cp Microsoft/config-wsl $HOME/linux-msft-wsl-${KERNEL_VER}.config
 cp .config $HOME/dm-crypt-plus-usb-kernel.config

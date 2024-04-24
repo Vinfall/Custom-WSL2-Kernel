@@ -1,6 +1,6 @@
 #!/bin/bash
 
-KERNEL_VER="5.15.150.1"
+KERNEL_VER="5.15.153.1"
 OUTPUT_DIR="output"
 
 # Enable optimizations for current CPU, you should disable this
