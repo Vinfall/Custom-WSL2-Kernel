@@ -1,5 +1,11 @@
 # Custom-WSL2-Kernel
 
+> [!warning]
+> With [linux-msft-wsl-6.6.36.3](https://github.com/microsoft/WSL2-Linux-Kernel/releases/tag/linux-msft-wsl-6.6.36.3),
+> (which is mainline LTS currently) and kernel module support, dkms should suffice in most cases,
+> although I have not tried yet. And I've migrated my infrastructure to eliminate the need of WSL.
+> As a result, this repo is now deprecated and would not get updated unless I return to WSL one day.
+
 Patch to build my own custom [WSL2-Linux-Kernel](https://github.com/microsoft/WSL2-Linux-Kernel).
 
 ## Benefits
